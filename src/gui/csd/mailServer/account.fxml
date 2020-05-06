@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.csd.mailServer.AccountController"
+            >
+    <top>
+        <HBox  style="-fx-border-color:black;-fx-background-color:  #144361;">
+        <Label fx:id="user" textFill="#fce90f">
+            <font>
+                <Font size="45" name="Andalus"/>
+            </font>
+        </Label>
+        </HBox>
+    </top>
+    <left>
+            <ListView fx:id="listView"  onMouseClicked="#listViewHandle"/>
+    </left>
+    <center>
+       <ListView fx:id="content" onMouseClicked="#handleContent" />
+    </center>
+    <right>
+        <VBox spacing="20">
+            <padding>
+                <Insets left="10" top="30" right="10"/>
+            </padding>
+            <Button fx:id="delButton" text="Delete" disable="true" onAction="#handleButtons"/>
+            <Button fx:id="moveButton" text="Move" disable="true" onAction="#handleButtons"/>
+            <Button fx:id="compose" text="(+)Compose" disable="true" onAction="#handleCompose"/>
+            <Button fx:id="show" text="Show Mail" disable="true" onAction="#handleShow"/>
+            <Button fx:id="restore" text="Restore" disable="true" onAction="#handleRestore"/>
+            <Button fx:id="edit" text="Edit Contact" disable="true" onAction="#handleEdit"/>
+
+
+        </VBox>
+
+    </right>
+
+
+
+
+</BorderPane>

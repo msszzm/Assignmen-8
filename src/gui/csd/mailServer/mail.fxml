@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.csd.mailServer.MailController">
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets left="10" top="10"/>
+            </padding>
+            <HBox spacing="5">
+                <Label text="To :">
+                    <font>
+                        <Font size="20"/>
+                    </font>
+                </Label>
+                <Label fx:id="to" >
+
+                </Label>
+            </HBox>
+            <HBox spacing="5">
+                <Label text="From :">
+                    <font>
+                        <Font size="20"/>
+                    </font>
+                </Label>
+                <Label fx:id="from" >
+
+                </Label>
+            </HBox>
+            <HBox spacing="5">
+                <Label text="Subject :">
+                    <font>
+                        <Font size="20"/>
+                    </font>
+                </Label>
+                <Label fx:id="subject" >
+
+                </Label>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TextArea fx:id="body" disable="true"/>
+    </center>
+    <bottom>
+        <GridPane alignment="BOTTOM_RIGHT">
+                <padding>
+                    <Insets bottom="10" right="10"/>
+                </padding>
+                <Button text="OK" GridPane.columnSpan="3" onAction="#handleOKAndUndo" />
+        </GridPane>
+    </bottom>
+
+</BorderPane>

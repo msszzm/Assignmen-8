@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<AnchorPane  xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.csd.mailServer.ExperimentController"
+            prefHeight="400.0" prefWidth="600.0" fx:id="all">
+<!--    <Circle fx:id="circle" radius="50" layoutX="100" layoutY="50" fill="red"/>-->
+    <Line fx:id="line" rotate="90" scaleX="1000" scaleY="20"/>
+    <HBox layoutY="150" layoutX="230" spacing="10" alignment="CENTER">
+    <Label fx:id="w" text="W">
+        <font>
+            <Font size="80"/>
+        </font>
+    </Label>
+    <Label fx:id="e" text="E">
+        <font>
+            <Font size="80"/>
+        </font>
+    </Label>
+        <Label fx:id="l" text="L">
+            <font>
+                <Font size="80"/>
+            </font>
+        </Label>
+    <Label fx:id="c" text="C">
+        <font>
+            <Font size="80"/>
+        </font>
+    </Label>
+    <Label fx:id="o" text="O">
+        <font>
+            <Font size="80"/>
+        </font>
+    </Label>
+    <Label fx:id="m" text="M">
+        <font>
+            <Font size="80"/>
+        </font>
+    </Label>
+    <Label fx:id="ee" text="E">
+        <font>
+            <Font size="80"/>
+        </font>
+    </Label>
+    </HBox>
+
+</AnchorPane>

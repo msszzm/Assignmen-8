@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="gui.csd.mailServer.ShowEmController"
+          style="-fx-background-color:white;">
+    <padding>
+        <Insets top="20" left="10" bottom="20" right="10"/>
+    </padding>
+    <VBox spacing="35">
+    <VBox spacing="10">
+        <Label  text="You want to sort them according to:">
+            <font>
+                <Font size="15"/>
+            </font>
+        </Label>
+        <fx:define>
+            <ToggleGroup fx:id="sorting"/>
+        </fx:define>
+        <RadioButton fx:id="date" text="By date" selected="true" toggleGroup="$sorting" onAction="#handleSort"/>
+        <RadioButton fx:id="receiver"  text="By Receiver" toggleGroup="$sorting" onAction="#handleSort"/>
+        <RadioButton fx:id="subject"  text="By Subject" toggleGroup="$sorting" onAction="#handleSort"/>
+        <RadioButton fx:id="body"  text="By Body" toggleGroup="$sorting" onAction="#handleSort"/>
+        <RadioButton fx:id="prior" text="By priority" toggleGroup="$sorting" onAction="#handleSort"/>
+    </VBox>
+        <VBox spacing="10">
+            <Label text="Filter:">
+                <font>
+                    <Font size="15"/>
+                </font>
+            </Label>
+            <VBox spacing="5">
+                <HBox spacing="5">
+                    <Label text="Sender or receiver :"/>
+                    <TextField fx:id="filrec"/>
+                </HBox>
+                <HBox spacing="5">
+                    <Label text="Subject :"/>
+                    <TextField fx:id="filsub"/>
+                </HBox>
+                <HBox spacing="5">
+                    <Label text="Body :"/>
+                    <TextField fx:id="filbody"/>
+                </HBox>
+                <ComboBox fx:id="combo" promptText="priority"/>
+            </VBox>
+        </VBox>
+        <HBox spacing="20" >
+            <Button fx:id="ok" text="OK" onAction="#handleButtons"/>
+            <Button fx:id="can" text="Cancel" onAction="#handleButtons"/>
+        </HBox>
+    </VBox>
+
+</GridPane>

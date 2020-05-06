@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.csd.mailServer.ChoiceController"
+         >
+    <padding>
+        <Insets top="10" left="20" bottom="20"/>
+    </padding>
+    <top>
+        <Label fx:id="text">
+            <font>
+                <Font size="20" />
+            </font>
+        </Label>
+    </top>
+        <center>
+            <GridPane alignment="BOTTOM_CENTER">
+        <HBox  spacing="10">
+            <Button fx:id="yes" text="Yes" prefWidth="80" onAction="#handleButtons"/>
+            <Button text="No" prefWidth="80" onAction="#handleButtons"/>
+        </HBox>
+            </GridPane>
+</center>
+
+
+</BorderPane>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.csd.mailServer.ComposeController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <VBox spacing="20" style="-fx-background-color:  #144361;">
+            <padding>
+                <Insets left="10" right="10" top="10" bottom="10"/>
+            </padding>
+            <HBox spacing="30">
+                <Label text="To:" textFill="aqua"/>
+                <HBox spacing="5">
+                <ComboBox fx:id="to" prefWidth="600" onAction="#handleTo"/>
+                    <Button fx:id="add" text="+" onAction="#handlePlusAndDel"/>
+                    <Button  text="DEL" onAction="#handlePlusAndDel"/>
+                </HBox>
+                <ComboBox fx:id="priority" promptText="Priority"/>
+            </HBox>
+            <HBox spacing="10">
+                <Label text="About:" textFill="aqua"/>
+                <TextField fx:id="about" prefWidth="600" onKeyReleased="#handleAbout"/>
+                <Button fx:id="attach" text="(+) Attachment" onAction="#handleAttachments"/>
+                <Button fx:id="send" text="Send" onAction="#handleButtons"/>
+                <Button text="Save to drafts" onAction="#handleButtons"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox style="-fx-background-color: #144361">
+            <padding>
+                <Insets top="15" left="15" right="15" bottom="20"/>
+            </padding>
+            <TextArea fx:id="email" prefHeight="590" style="-fx-border-color:black; -fx-background-color:grey" onKeyReleased="#handleTextArea"/>
+        </VBox>
+
+    </center>
+
+
+</BorderPane>

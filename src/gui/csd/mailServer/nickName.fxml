@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.csd.mailServer.NickNameController">
+    <center>
+        <GridPane vgap="10" hgap="10" alignment="CENTER_LEFT">
+            <HBox spacing="5">
+                <Label text="Enter the new name: "/>
+                <TextField fx:id="name" />
+            </HBox>
+            <HBox spacing="10" GridPane.rowIndex="6" GridPane.columnIndex="12">
+                <padding>
+                    <Insets right="5" bottom="5"/>
+                </padding>
+                <Button fx:id="ok" text="OK" prefWidth="40" onAction="#handleButtons"/>
+                <Button text="Cancel" onAction="#handleButtons"/>
+            </HBox>
+        </GridPane>
+
+    </center>
+
+
+</BorderPane>

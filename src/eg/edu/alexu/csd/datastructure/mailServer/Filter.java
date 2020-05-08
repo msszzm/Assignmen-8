@@ -16,7 +16,7 @@ public class Filter implements IFilter {
 
         Sort Sorting = new Sort();
 
-
+        
         if(!attributeInt(attribute)) {//if required data is string we will pass by all mails
             LStack<Mail> s = Sorting.sort(l,folder,"date");//just get a copy of inbox and
             if(attribute.equals("sender"))//if searching sender
@@ -46,6 +46,7 @@ public class Filter implements IFilter {
             l = filteredmail;
             return filteredmail;
         }
+
 
 
 
@@ -89,14 +90,14 @@ public class Filter implements IFilter {
     public static String mailString(Mail mail,String attribute) {
         String index="";
         switch(attribute) {
-            case("subject"):
-                index = mail.getSubject();
+            case("head"):
+                return mail.getSubject();
             case("body"):
-                index = mail.getBody();
+                return mail.getBody();
             case("sender"):
-                index = mail.getSender().toString();
+                return mail.getSender().toString();
             case("receivers"):
-                index = mail.getReceivers().toString();
+                return mail.getReceivers().toString();
         }
         return index;
     }
@@ -106,29 +107,30 @@ public class Filter implements IFilter {
         switch(attribute) {
             case("priority"):
                 index = mail.getPriority();
+            	break;
             case("date"):
                 index = (int) (mail.getDate().getTime() - 2629746*1000);
+            	break;
         }
         return index;
     }
 
     public static boolean attributeInt(String attribute) {
-        boolean intger = false ;
         switch(attribute) {
             case("priority"):
-                intger = true;//if he choose priority the required is number of priority
-            case("subject"):
-                intger = false;
+            	return true;//if he choose priority the required is number of priority
+            case("head"):
+            	return false;
             case("body"):
-                intger = false;
+            	return false;
             case("sender"):
-                intger = false;
+            	return false;
             case("receivers"):
-                intger = true;
+            	return  true;
             case("date"):
-                intger = true;
+            	return true;
         }
-        return intger;
+        return false;
     }
 
     public SingleLinked <String> getFilterList() {

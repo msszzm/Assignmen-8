@@ -19,7 +19,7 @@ public class Sort implements ISort{//s
             attribute = selectedSort;
         LStack<Mail> s = new LStack<>();;
 
-        int test =folder.noofMails();
+        //int test =folder.noofMails();
         if(l==null||l.size()==0) {
             for(int i =0;i<folder.noofMails();i++) {
                 s.push(folder.getMail(i));
@@ -58,18 +58,18 @@ public class Sort implements ISort{//s
         numbers.push(noBigger);
         bigger.push(temp);
 
-
+        
         while((bigger.size()!=0)||(smaller.size()!=0)){
-            noBigger=0;
+        	noBigger=0;
             if(smaller.size()==1||smaller.size()==0) {
                 if(smaller.size()==1)
                     s.push(smaller.pop());
                 if(bigger.size()!=0) {
-                    s.push(bigger.pop());
-                    int i = 0;
-                    while(i++<numbers.top())
-                        smaller.push(bigger.pop());
-                    numbers.pop();
+	                s.push(bigger.pop());
+	                int i = 0;
+	                while(i++<numbers.top())
+	                    smaller.push(bigger.pop());
+	                numbers.pop();
                 }
             }
             else {
@@ -103,7 +103,7 @@ public class Sort implements ISort{//s
             while(!s.isEmpty())
                 s1.push(s.pop());
             while(!s1.isEmpty()) {
-                s.push(s.top());
+                s.push(s1.pop());
             }
         }
         l=s;

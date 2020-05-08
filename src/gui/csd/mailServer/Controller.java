@@ -86,6 +86,8 @@ public class Controller{
             signInStage.setScene(new Scene(root, 1000, 600));
             signInStage.setTitle(Data.getApp().allInformations().getEmail());
             signInStage.show();
+            Stage st= (Stage) signInButt.getScene().getWindow();
+            st.close();
         }
         else{
             Alert alert=new Alert(Alert.AlertType.ERROR);

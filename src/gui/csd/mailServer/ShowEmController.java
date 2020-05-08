@@ -1,7 +1,6 @@
 package gui.csd.mailServer;
 
 import eg.edu.alexu.csd.datastructure.com.SingleLinked;
-import eg.edu.alexu.csd.datastructure.mailServer.Filter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -109,11 +108,20 @@ public class ShowEmController {
                 filter.add("priority");
                 temp=combo.getValue();
                 if(temp!=null&& !temp.equals("None")){
-                        filter.add(temp);
+                        filter.add(toInteger(temp)+"");
                 }
                 else
                         filter.add(null);
 
+        }
+        private int toInteger(String temp){
+                switch (temp) {
+                        case "Very Important":return 1;
+                        case "Important":return 2;
+                        case "Medium":return 3;
+                        case "Not Important":return 4;
+                        default:return 0;
+                }
         }
 
         public static String getSort() {
@@ -121,6 +129,8 @@ public class ShowEmController {
         }
 
         public static SingleLinked<String> getFilter() {
-                return filter;
+                SingleLinked<String> x=filter;
+                filter=new SingleLinked<>();
+                return x;
         }
 }

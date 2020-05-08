@@ -47,6 +47,7 @@ public class AccountController {
     @FXML
     private Button edit;
 
+
     boolean inTrash=false;
     boolean showContact=false;
 
@@ -71,6 +72,7 @@ public class AccountController {
         listView.getItems().add("Show Draft Mails");
         listView.getItems().add("Show Trash Mails");
         listView.getItems().add("Show Contacts");
+        listView.getItems().add("Log Out");
         listView.setFixedCellSize(50);
         listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
@@ -145,6 +147,10 @@ public class AccountController {
         else if(item.equals(listView.getItems().get(3))){//Draft
              folder=contact.getDraft();
              ComposeController.isDraft=true;
+        }
+        else if(item.equals(listView.getItems().get(6))) {
+            handleLogOut();
+            return;
         }
         else{//Trash
             folder=contact.getTrash();
@@ -404,28 +410,14 @@ public class AccountController {
 
         }
     }
+    public void handleLogOut() throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 1200, 500));
+            stage.setTitle("aaa");
+            stage.show();
+        Stage st= (Stage) listView.getScene().getWindow();
+        st.close();
+
+    }
 }
-//        listView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
-//            @Override
-//            public ListCell<String> call(ListView<String> stringListView) {
-//                return new ListCell<String>(){
-//                    @Override
-//                    protected void updateItem(String item, boolean empty) {
-//                        super.updateItem(item, empty);
-//                        if(!empty) {
-//                            CornerRadii rad=new CornerRadii(10);
-//                            Insets inset=new Insets(2,2,2,2);
-//                            Color color=new Color(0.2,0.5,0.9,0.8);
-//                            BackgroundFill fill=new BackgroundFill(color,rad, inset);
-//                            Background back=new Background(fill);
-//                            setBackground(back);
-//                            setText(item);
-//                            Font font=new Font("Times new roman Bold",20);
-//                            setFont(font);
-//                            setTextFill(Color.BLACK);
-//
-//                        }
-//                    }
-//                };
-//            }
-//        });

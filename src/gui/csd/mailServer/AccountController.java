@@ -195,6 +195,8 @@ public class AccountController {
     public void handleContent() {
         //We need to save the content of mail.
         //We have the account contact.
+        if(content.getSelectionModel().getSelectedItems()==null)
+            return;
         if(showContact){
             edit.setDisable(!(content.getSelectionModel().getSelectedItems().size()==1));
             return;

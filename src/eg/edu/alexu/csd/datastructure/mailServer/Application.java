@@ -14,7 +14,7 @@ public class Application implements IApp {
     private Contacts contacts = new Contacts();
     private Folder temp;
     private SingleLinked<Mail> shownMails = new SingleLinked<>();
-
+    private int i =0;
     private SingleLinked<String> errorContacts;
 
     @Override
@@ -45,6 +45,11 @@ public class Application implements IApp {
     @Override
     public void setViewingOptions(IFolder folder, IFilter filter, ISort sort) {
         System.out.println("////////////////////SetViewing");
+        if(i==0)
+        	i=1;
+        else
+        	i=0;
+        
         switch (folder.getNameFolder()) {
             case "inbox":
                 temp = contact.getInbox();
@@ -70,7 +75,6 @@ public class Application implements IApp {
             } catch (Exception e) {
                 System.out.println("error in filter");
             }
-        str = "body";
         try {
             viewMailed = sort.sort(viewMailed, folder, str);
         } catch (Exception e) {
@@ -121,7 +125,7 @@ public class Application implements IApp {
                 trash.addDeletedMail(new DeletedMail(Mails.get(i), new Date(), temp));
                 temp.removeMail(Mails.get(i));
             }
-            contact.deleteMails(Mails,  temp);
+            //contact.deleteMails(Mails,  temp);
         }
         else {
             for (int i = 0; i < mails.size(); i++)
@@ -213,13 +217,14 @@ public class Application implements IApp {
     }
 
     public boolean changeName(String newName,String oldName){
-
+        Contact user=contacts.getByUserName(oldName);
+        if(user==null)
+            return false;
         //Now we have the contact to be edited ,we need the userContact.
-        UserContact contact=this.contact.isNameThere(oldName);
+        UserContact contact=this.contact.getSavedContact(user);
         if(contact==null)//This contact isn't saved
             return false;
         contact.setNickname(newName);
-        save();
         return true;
     }
     public SingleLinked<UserContact> getContacts(){
